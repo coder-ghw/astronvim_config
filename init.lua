@@ -18,7 +18,7 @@ return {
   },
 
   -- Set colorscheme to use
-  colorscheme = "astrodark",
+   colorscheme = "astrodark",
 
   -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
   diagnostics = {
@@ -49,8 +49,23 @@ return {
     },
     -- enable servers that you already have installed without mason
     servers = {
-      -- "pyright"
+       "clangd",
+       "pyright"
     },
+    
+    -- set c++ lsp
+    setup_handlers = {
+      -- add custom handler
+      clangd = function(_, opts) require("clangd_extensions").setup { server = opts } end
+    },
+    config = {
+      clangd = {
+        capabilities = {
+          offsetEncoding = "utf-8",
+        },
+      },
+    },
+    
   },
 
   -- Configure require("lazy").setup() options
@@ -82,3 +97,4 @@ return {
     -- }
   end,
 }
+

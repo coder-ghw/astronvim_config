@@ -9,4 +9,13 @@ return {
   --     require("lsp_signature").setup()
   --   end,
   -- },
+   {
+     "p00f/clangd_extensions.nvim"
+   },
+   {
+      "xiyaowong/transparent.nvim", 
+      lazy = false 
+   }
+  
 }
+
